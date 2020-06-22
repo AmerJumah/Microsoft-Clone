@@ -1,0 +1,299 @@
+@import 'config';
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin:0;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fff;
+    color:  color(blacky);
+    font-size: 1em;
+    line-height: 1.5;
+}
+.btn-menu {
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    z-index: 2;
+    display: none;
+    &:hover{
+        opacity: 0.5;
+    }
+    @include mobile{
+        display: block;
+
+    }
+    
+}
+
+.container{
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    .main-nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 60px;
+        padding: 10px 0;
+        font-size: 13px;
+
+        .logo{
+            width: 110px;
+        }
+    
+        a{
+            color: color(blacky);
+            text-decoration: none;
+        }
+
+        ul{
+            list-style: none;
+            display: flex;
+            
+            li{
+                padding: 0 10;
+            }
+        } 
+
+        .right-menu{
+            @include mobile{
+                margin-right: 50px ;
+            }
+        }
+        
+        .main-menu{
+            flex: 1;
+            margin-left: 20px;
+
+            @include mobile{
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: color(bg);
+                width: 50%;
+                height: 100%; 
+                border-right: #ccc 1px solid ;
+                opacity: 0.9;
+                padding: 30px;
+                transform: translateX(-500px);
+                transition: transform 0.5s ease-in-out;
+                .show{
+                    transform: translateX(-20px);
+                }
+            }
+            
+
+            li{
+                @include mobile{
+                    padding: 10px;
+                    border-bottom: 1px #ccc solid;
+                    font-size: 14px;
+                    &:last-child{
+                        border-bottom: none;
+                    }
+
+                }
+                
+                a{
+                    padding-bottom: 2px;
+                }
+
+                a:hover{
+                    border-bottom: 2px solid color(blacky);
+                }
+            }
+
+        }
+    }
+    .btn {
+        cursor: pointer;
+        display: inline-block;
+        border: 0;
+        font-weight: bold;
+        padding: 10px 20px;
+        background: color(blacky);
+        color: #fff;
+        font-size: 15px;
+        margin-top: 10px;
+    }
+    .btn:hover{
+        opacity: 0.9;
+    }
+    .showcase{
+        width: 100%;
+        height: 400px;
+        background: url('img/slide1.png') no-repeat center center/cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        padding-bottom: 50px;
+        margin-bottom: 20;
+        
+        h2,p{
+            margin-bottom: 10px;
+        }
+
+        
+    }
+
+}
+.home-cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    img{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    h3{
+        margin-bottom: 20px;
+
+    }
+    a{
+        display: inline-block;
+        padding-top: 10px;
+        color: color(learn-more);
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    a:hover{
+        i{
+            margin-left: 10px;
+        }
+
+    }
+
+}
+
+.showcase2{
+    background: url('img/xbox.png') no-repeat center center/cover ;
+    margin-top: 20px;
+    width: 100%;
+    height: 400px;
+    margin-bottom: 20px;
+    .content{
+        width: 45%;
+        padding: 80 0 0 30px;
+        h1{
+            margin-bottom: 10px;
+            @include mobile{
+                font-size: 25px;
+            }
+
+        }  
+        p {
+            margin: 20 0 20 0px;
+            @include mobile{    
+                display: none;   
+            }
+        }
+    }
+    
+}
+
+.showcase3{
+    background: url('img/carbon.jpg') no-repeat center center/cover;
+    margin-top: 20px;
+    width: 100%;
+    height: 400px;
+    padding: 80 0 0 30px;
+    
+    .content{
+        width: 40%;
+        color: #fff;
+        @include mobile{
+            width: 80%;
+        }
+        p{
+            margin: 20px 0 30 0;
+        }
+        .btn{
+            color: color(blacky);
+            background-color: #fff;
+        }
+    }
+
+}
+
+.social{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    span{
+        margin-right: 10px;
+        color: color(blacky);
+    }
+    a{
+        margin: 0 10 0 10px;
+    }
+}
+
+.links{
+    background-color: #f2f2f2;
+    color: 616161;
+    padding: 35 0 35 0;
+    margin-top: 20px;
+    ul{
+        list-style: none;
+    }
+    ul li a {
+        text-decoration: none;
+        color: color(blacky);
+        
+    }
+    
+    .links-inner{
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+        gap: 20px;
+        
+        li{   
+            line-height: 2.8;
+            cursor: pointer;
+            font-size: 13px;
+        }
+    }
+    .footer{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 20px;
+
+        div{
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            i{
+                margin-right: 10px;
+            }
+        }
+        ul{
+            display: flex;
+            flex-wrap: wrap;
+
+            
+            li{
+                margin-right: 10px;
+                margin-bottom: 10px;
+
+            }
+            
+            
+        }
+        
+    }
+
+}
